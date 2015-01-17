@@ -214,24 +214,20 @@ public class ReinicioValores {
             Element rootEle = dom.createElement("Simulacion");
             dom.appendChild(rootEle);
 
-            //Conf general
-            Element confEle = dom.createElement("Configuracion");
-            rootEle.appendChild(confEle);
-
             Element semillaEle = dom.createElement("Semilla");
             Text semillaText = dom.createTextNode(String.valueOf(semilla));
             semillaEle.appendChild(semillaText);
-            confEle.appendChild(semillaEle);
+            rootEle.appendChild(semillaEle);
 
             Element nZonasEle = dom.createElement("Numero_Zonas");
             Text nZonasText = dom.createTextNode(String.valueOf(nZonas));
             nZonasEle.appendChild(nZonasText);
-            confEle.appendChild(nZonasEle);
+            rootEle.appendChild(nZonasEle);
 
             Element limiteEle = dom.createElement("Dias_limite");
             Text limiteText = dom.createTextNode(String.valueOf(limite_emulacion));
             limiteEle.appendChild(limiteText);
-            confEle.appendChild(limiteEle);
+            rootEle.appendChild(limiteEle);
 
             //Conf camiones
             Element camEle = dom.createElement("Camiones");
@@ -246,6 +242,78 @@ public class ReinicioValores {
             Text porcText = dom.createTextNode(String.valueOf(porcentaje_minimo));
             porcEle.appendChild(porcText);
             camEle.appendChild(porcEle);
+            
+            //Conf Zonas
+            Element zonasEle = dom.createElement("Zonas");
+            rootEle.appendChild(zonasEle);
+            
+            for (int i = 0; i < nZonas; i++) {
+                
+                Element zEle = dom.createElement("Zona_" + i);
+                
+                Element nomEle = dom.createElement("Nombre");
+                Text nomText = dom.createTextNode(nombre_zonas.get(i));
+                nomEle.appendChild(nomText);
+                
+                Element camEspEle = dom.createElement("Camiones_espera");
+                Text camEspText = dom.createTextNode(String.valueOf(camiones_espera.get(i)));
+                camEspEle.appendChild(camEspText);
+                
+                Element probEle = dom.createElement("Probabilidad_destinos");
+                
+                for (int j = 0; j < nZonas; j++) {
+                    
+                    Element pdEle = dom.createElement("Zona_" + j);
+                    Text pdText = dom.createTextNode(String.valueOf(probabilidad_destinos.get(i).get(j)));
+                    pdEle.appendChild(pdText);
+                    probEle.appendChild(pdEle);
+                    
+                }
+                
+                Element medGenEle = dom.createElement("Media_generacion_paquetes");
+                Text medGenText = dom.createTextNode(String.valueOf(media_generacion_paquetes.get(i)));
+                medGenEle.appendChild(medGenText);
+                
+                Element desGenEle = dom.createElement("Desviacion_tipica_generacion_paquetes");
+                Text desGenText = dom.createTextNode(String.valueOf(desvTip_generacion_paquetes.get(i)));
+                desGenEle.appendChild(desGenText);
+                
+                Element medTamEle = dom.createElement("Media_tamano_paquetes");
+                Text medTamText = dom.createTextNode(String.valueOf(media_tam.get(i)));
+                medTamEle.appendChild(medTamText);
+                
+                Element desTamEle = dom.createElement("Desviacion_tipica_tamano_paquetes");
+                Text desTamText = dom.createTextNode(String.valueOf(desvTip_tam.get(i)));
+                desTamEle.appendChild(desTamText);
+                
+                Element medTiEle = dom.createElement("Media_tiempo_limite");
+                Text medTiText = dom.createTextNode(String.valueOf(media_tiempo_limite.get(i)));
+                medTiEle.appendChild(medTiText);
+                
+                Element desTiEle = dom.createElement("Desviacion_tipica_tiemp_limite");
+                Text desTiText = dom.createTextNode(String.valueOf(desvTip_tiempo_limite.get(i)));
+                desTiEle.appendChild(desTiText);
+                
+                Element maxTiEle = dom.createElement("Tiempo_limite_maximo");
+                Text maxTiText = dom.createTextNode(String.valueOf(max_tiempo_limite.get(i)));
+                maxTiEle.appendChild(maxTiText);
+                
+                zonasEle.appendChild(zEle);
+                zEle.appendChild(nomEle);
+                zEle.appendChild(camEspEle);
+                zEle.appendChild(probEle);
+                zEle.appendChild(medGenEle);
+                zEle.appendChild(desGenEle);
+                zEle.appendChild(medTamEle);
+                zEle.appendChild(desTamEle);
+                zEle.appendChild(medTiEle);
+                zEle.appendChild(desTiEle);
+                zEle.appendChild(maxTiEle);
+                
+                
+                
+                
+            }
 
             try {
 
