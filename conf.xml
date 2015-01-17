@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Simulacion>
+    <Configuracion>
+        <Semilla>1234567890</Semilla>
+        <Numero_Zonas>7</Numero_Zonas>
+        <Dias_limite>365</Dias_limite>
+    </Configuracion>
+    <Camiones>
+        <Capacidad>1000.0</Capacidad>
+        <Porcentaje_minimo>0.3</Porcentaje_minimo>
+    </Camiones>
+</Simulacion>

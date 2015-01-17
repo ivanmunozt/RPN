@@ -19,11 +19,9 @@ class Camion implements Comparable<Camion> {
     static double porcentaje_minimo;
     static double capacidad;
 
-    Camion(int id, double capacidad, double porcentaje_minimo) {
+    Camion(int id) {
 
         this.id = id;
-        this.capacidad = capacidad;
-        this.porcentaje_minimo = porcentaje_minimo;
         this.carga = new ArrayList<>();
         this.tiempo_espera = 0;
 
