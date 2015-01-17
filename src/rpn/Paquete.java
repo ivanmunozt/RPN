@@ -9,46 +9,50 @@ package rpn;
  *
  * @author Adrián
  */
-public class Paquete {
-    
-    private String destino;
-    private String origen;
-    private float tamaño;
-    private int fecha_limite; 
-    private int fecha;
+class Paquete implements Comparable<Paquete> {
 
-    public Paquete(String destino, String origen, float tamaño, int fecha_limite, int fecha) {
+    int destino;
+    int origen;
+    double tamaño;
+    int fecha_limite;
+    int fecha;
+
+    Paquete(int destino, int origen, double tamaño, int fecha_limite, int fecha) {
+
         this.destino = destino;
         this.origen = origen;
         this.tamaño = tamaño;
         this.fecha_limite = fecha_limite;
         this.fecha = fecha;
+
     }
 
-    public String getDestino() {
-        return destino;
+    @Override
+    public int compareTo(Paquete o) { //ordena de mayor a menor, pone al final los paquetes mas proximos a llegar a la fecha limite y con menos peso
+
+        Integer a = 0;
+
+        if (o.fecha_limite == this.fecha_limite) {
+
+            if (o.tamaño > this.tamaño) {
+
+                return 1;
+
+            } else if (o.tamaño < this.tamaño) {
+
+                return -1;
+
+            } else {
+
+                return 0;
+
+            }
+        } else {
+
+            return o.fecha_limite - this.fecha_limite;
+
+        }
+
     }
 
-    public String getOrigen() {
-        return origen;
-    }
-
-    public int getFecha_limite() {
-        return fecha_limite;
-    }
-
-    public void setDestino(String destino) {
-        this.destino = destino;
-    }
-
-    public int getFecha() {
-        return fecha;
-    }
-
-    public float getTamaño() {
-        return tamaño;
-    }
-    
-    
-    
 }
