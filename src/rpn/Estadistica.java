@@ -281,25 +281,53 @@ public class Estadistica {
 
         if (dest < 0) {
 
-            for (int i = 0; i < nZonas; i++) {
+            if (orig < 0) {
 
-                if (i != orig) {
+                for (int i = 0; i < nZonas; i++) {
 
-                    s = orig + "-" + i;
-                    aux = tiempo_llegada_acum.get(s);
+                    for (int j = 0; j < nZonas; j++) {
 
-                    for (int j = 0; j < aux.size(); j++) {
+                        if (i != j) {
 
-                        if (aux.get(j) < 0) {
+                            s = i + "-" + j;
+                            aux = tiempo_llegada_acum.get(s);
 
-                            ret++;
+                            for (int k = 0; k < aux.size(); k++) {
+
+                                if (aux.get(k) < 0) {
+
+                                    ret++;
+
+                                }
+
+                            }
+
+                        }
+                    }
+
+                }
+
+            } else {
+                for (int i = 0; i < nZonas; i++) {
+
+                    if (i != orig) {
+
+                        s = orig + "-" + i;
+                        aux = tiempo_llegada_acum.get(s);
+
+                        for (int j = 0; j < aux.size(); j++) {
+
+                            if (aux.get(j) < 0) {
+
+                                ret++;
+
+                            }
 
                         }
 
                     }
 
                 }
-
             }
 
         } else {
@@ -332,6 +360,89 @@ public class Estadistica {
         String s;
         String ret = "Dias pasados:\t" + dia + "\n";
 
+        /////////----------------------------Global
+        ret += "\nEstadisticas Globales:\n";
+
+        auxl = 0;
+
+        for (Long l : paquetes_enviados.values()) {
+
+            auxl += l;
+
+        }
+        ret += "Paquetes enviados:\t" + auxl + "\n";
+
+        int tar = getTardios(-1, -1);
+        ret += "Paquetes Tardíos:\t" + tar + "\n";
+
+        ret += "Paquetes Tardíos %:\t" + (tar * 100.0) / auxl + "\n";
+
+        auxl = 0;
+
+        for (Integer in : camiones_enviados.values()) {
+
+            auxl += in;
+
+        }
+        ret += "Camiones enviados:\t" + auxl + "\n";
+
+        ret += "Estadisticas:\tmin\tmax\tmedia\tdestip\n";
+
+        ArrayList<Integer> toat = new ArrayList<>();
+        for (int i = 0; i < nZonas; i++) {
+
+            toat.addAll(tiempo_ocioso_acumulado.get(i));
+
+        }
+
+        media = mediaInt(toat);
+        desvTip = desvTipInt(toat, media);
+        mini = Collections.min(toat);
+        maxi = Collections.max(toat);
+        ret += "Dias Ocio Cam:\t" + mini + "\t" + maxi + "\t" + media + "\t" + desvTip + "\n";
+
+        ArrayList<Double> tot_ocup = new ArrayList<>();
+
+        for (ArrayList<Double> arDo : ocupacion_camiones.values()) {
+
+            tot_ocup.addAll(arDo);
+
+        }
+
+        media = mediaDouble(tot_ocup);
+        desvTip = desvTipDouble(tot_ocup, media);
+        mind = Collections.min(tot_ocup);
+        maxd = Collections.max(tot_ocup);
+        ret += "Ocupacion Cam:\t" + mind + "\t" + maxd + "\t" + media + "\t" + desvTip + "\n";
+
+        ArrayList<Integer> tot_esp = new ArrayList<>();
+
+        for (ArrayList<Integer> arIn : tiempo_espera_acum.values()) {
+
+            tot_esp.addAll(arIn);
+
+        }
+
+        media = mediaInt(tot_esp);
+        desvTip = desvTipInt(tot_esp, media);
+        mini = Collections.min(tot_esp);
+        maxi = Collections.max(tot_esp);
+        ret += "Espera Paq:\t" + mini + "\t" + maxi + "\t" + media + "\t" + desvTip + "\n";
+
+        ArrayList<Integer> tot_lleg = new ArrayList<>();
+
+        for (ArrayList<Integer> arIn : tiempo_llegada_acum.values()) {
+
+                tot_lleg.addAll(arIn);
+
+        }
+
+        media = mediaInt(tot_lleg);
+        desvTip = desvTipInt(tot_lleg, media);
+        mini = Collections.min(tot_lleg);
+        maxi = Collections.max(tot_lleg);
+        ret += "Llegada Paq:\t" + mini + "\t" + maxi + "\t" + media + "\t" + desvTip + "\n";
+
         ret += "\nEstadisticas por Zona:\n";
 
         for (int i = 0; i < nZonas; i++) {
@@ -351,9 +462,10 @@ public class Estadistica {
 
             ret += "Paquetes enviados:\t" + auxl + "\n";
 
-            ret += "Paquetes Tardíos:\t" + getTardios(i, -1) + "\n";
+            tar = getTardios(i, -1);
+            ret += "Paquetes Tardíos:\t" + tar + "\n";
 
-            ret += "Paquetes Tardíos %:\t" + (getTardios(i, -1) * 100.0) / auxl + "\n";
+            ret += "Paquetes Tardíos %:\t" + (tar * 100.0) / auxl + "\n";
 
             auxl = 0;
 
@@ -376,7 +488,7 @@ public class Estadistica {
             maxi = Collections.max(tiempo_ocioso_acumulado.get(i));
             ret += "Dias Ocio Cam:\t" + mini + "\t" + maxi + "\t" + media + "\t" + desvTip + "\n";
 
-            ArrayList<Double> tot_ocup = new ArrayList<>();
+            tot_ocup = new ArrayList<>();
 
             for (int j = 0; j < nZonas; j++) {
 
@@ -394,7 +506,7 @@ public class Estadistica {
             maxd = Collections.max(tot_ocup);
             ret += "Ocupacion Cam:\t" + mind + "\t" + maxd + "\t" + media + "\t" + desvTip + "\n";
 
-            ArrayList<Integer> tot_esp = new ArrayList<>();
+            tot_esp = new ArrayList<>();
 
             for (int j = 0; j < nZonas; j++) {
 
@@ -412,7 +524,7 @@ public class Estadistica {
             maxi = Collections.max(tot_esp);
             ret += "Espera Paq:\t" + mini + "\t" + maxi + "\t" + media + "\t" + desvTip + "\n";
 
-            ArrayList<Integer> tot_lleg = new ArrayList<>();
+            tot_lleg = new ArrayList<>();
 
             for (int j = 0; j < nZonas; j++) {
 
@@ -438,6 +550,8 @@ public class Estadistica {
 
                 }
             }
+
+            ret += "\n";
 
         }
 

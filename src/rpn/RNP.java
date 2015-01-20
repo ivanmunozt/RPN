@@ -19,7 +19,6 @@ import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import jdk.internal.org.xml.sax.SAXException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -355,11 +354,11 @@ public class RNP {
                 serializer.serialize(dom);
 
             } catch (IOException ie) {
-                Logger.getLogger(RNP.class.getName()).log(Level.SEVERE, null, ie);
+                System.err.println(ie.getMessage());
             }
 
         } catch (ParserConfigurationException pce) {
-            Logger.getLogger(RNP.class.getName()).log(Level.SEVERE, null, pce);
+            System.err.println(pce.getMessage());
         }
     }
 
@@ -440,8 +439,8 @@ public class RNP {
 //                        + " - " + max_tiempo_limite.get(i));
             }
 
-        } catch (ParserConfigurationException | IOException | org.xml.sax.SAXException pce) {
-            Logger.getLogger(RNP.class.getName()).log(Level.SEVERE, null, pce);
+        } catch (Exception  pce) {
+            System.err.println(pce.getMessage());
         }
 
     }
@@ -457,7 +456,7 @@ public class RNP {
             pw.print(res);
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         } finally {
             try {
 
@@ -465,7 +464,7 @@ public class RNP {
                     fichero.close();
                 }
             } catch (Exception e2) {
-                System.out.println(e2.getMessage());
+                System.err.println(e2.getMessage());
             }
         }
 
