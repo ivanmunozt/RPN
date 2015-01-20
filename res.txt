@@ -1,0 +1,157 @@
+Dias pasados:	365
+
+Estadisticas por Zona:
+Madrid
+Paquetes enviados:	693421
+Paquetes Tardíos:	38
+Paquetes Tardíos %:	0.005480076317273345
+Camiones enviados:	2190
+Estadisticas:	min	max	media	destip
+Dias Ocio Cam:	0	1	0.0958904109589041	0.2944408939754065
+Ocupacion Cam:	0.28595916508118885	99.99077441241448	31.650366798699384	21.289866067425894
+Espera Paq:	0	1	0.0012546490515862657	0.03539879810591907
+Llegada Paq:	-1	3	0.9987972674608931	0.5661521149229749
+	Cataluna	Paq: 138351	Cam: 367
+			min	max	media	destip
+	Valencia	Paq: 104006	Cam: 365
+			min	max	media	destip
+	Andalucia	Paq: 138915	Cam: 365
+			min	max	media	destip
+	Castilla	Paq: 103721	Cam: 363
+			min	max	media	destip
+	Pais_Vasco	Paq: 104097	Cam: 365
+			min	max	media	destip
+	Galicia	Paq: 104331	Cam: 365
+			min	max	media	destip
+Cataluna
+Paquetes enviados:	595946
+Paquetes Tardíos:	76
+Paquetes Tardíos %:	0.012752833310400606
+Camiones enviados:	2190
+Estadisticas:	min	max	media	destip
+Dias Ocio Cam:	0	1	0.2095890410958904	0.40701532520090145
+Ocupacion Cam:	0.08943331495576999	99.99950019013596	27.21384907352246	19.265091378211224
+Espera Paq:	0	1	9.312924325358338E-4	0.030502870798351674
+Llegada Paq:	-1	3	0.9999630839035751	0.5683005386440322
+	Madrid	Paq: 119229	Cam: 367
+			min	max	media	destip
+	Valencia	Paq: 89141	Cam: 364
+			min	max	media	destip
+	Andalucia	Paq: 119161	Cam: 367
+			min	max	media	destip
+	Castilla	Paq: 89440	Cam: 365
+			min	max	media	destip
+	Pais_Vasco	Paq: 89234	Cam: 364
+			min	max	media	destip
+	Galicia	Paq: 89741	Cam: 363
+			min	max	media	destip
+Valencia
+Paquetes enviados:	425762
+Paquetes Tardíos:	0
+Paquetes Tardíos %:	0.0
+Camiones enviados:	2184
+Estadisticas:	min	max	media	destip
+Dias Ocio Cam:	0	1	0.3974358974358974	0.4893675559998029
+Ocupacion Cam:	0.058872492724376294	86.52199130346321	19.49081877308577	14.817494973885008
+Espera Paq:	0	0	0.0	0.0
+Llegada Paq:	0	3	0.9996711777941667	0.5675716800640075
+	Madrid	Paq: 97666	Cam: 363
+			min	max	media	destip
+	Cataluna	Paq: 85025	Cam: 363
+			min	max	media	destip
+	Andalucia	Paq: 76635	Cam: 364
+			min	max	media	destip
+	Castilla	Paq: 55442	Cam: 365
+			min	max	media	destip
+	Pais_Vasco	Paq: 55395	Cam: 364
+			min	max	media	destip
+	Galicia	Paq: 55599	Cam: 365
+			min	max	media	destip
+Andalucia
+Paquetes enviados:	486993
+Paquetes Tardíos:	0
+Paquetes Tardíos %:	0.0
+Camiones enviados:	2186
+Estadisticas:	min	max	media	destip
+Dias Ocio Cam:	0	2	0.6491308325709058	0.48106095986863956
+Ocupacion Cam:	0.09145847346802052	99.97671058925368	22.27308601834615	15.670845232168219
+Espera Paq:	0	0	0.0	0.0
+Llegada Paq:	0	3	1.0024682079619214	0.5666995866100705
+	Madrid	Paq: 97533	Cam: 366
+			min	max	media	destip
+	Cataluna	Paq: 97480	Cam: 364
+			min	max	media	destip
+	Valencia	Paq: 72744	Cam: 363
+			min	max	media	destip
+	Castilla	Paq: 73263	Cam: 365
+			min	max	media	destip
+	Pais_Vasco	Paq: 72858	Cam: 364
+			min	max	media	destip
+	Galicia	Paq: 73115	Cam: 364
+			min	max	media	destip
+Castilla
+Paquetes enviados:	431415
+Paquetes Tardíos:	0
+Paquetes Tardíos %:	0.0
+Camiones enviados:	2180
+Estadisticas:	min	max	media	destip
+Dias Ocio Cam:	0	3	1.4087155963302753	0.8129779902878884
+Ocupacion Cam:	0.08506669106918785	96.94512624177754	19.778354985889322	14.438898003700697
+Espera Paq:	0	0	0.0	0.0
+Llegada Paq:	0	3	1.0009920841880788	0.5667391159260096
+	Madrid	Paq: 99350	Cam: 364
+			min	max	media	destip
+	Cataluna	Paq: 86537	Cam: 364
+			min	max	media	destip
+	Valencia	Paq: 56083	Cam: 364
+			min	max	media	destip
+	Andalucia	Paq: 77379	Cam: 364
+			min	max	media	destip
+	Pais_Vasco	Paq: 55912	Cam: 362
+			min	max	media	destip
+	Galicia	Paq: 56154	Cam: 362
+			min	max	media	destip
+Pais_Vasco
+Paquetes enviados:	420197
+Paquetes Tardíos:	0
+Paquetes Tardíos %:	0.0
+Camiones enviados:	2187
+Estadisticas:	min	max	media	destip
+Dias Ocio Cam:	0	1	0.7014174668495656	0.4576363229114404
+Ocupacion Cam:	0.07482666581755759	86.57757530669718	19.20580835932125	14.017432422262711
+Espera Paq:	0	0	0.0	0.0
+Llegada Paq:	0	3	1.0013279485574624	0.5665896669802903
+	Madrid	Paq: 96634	Cam: 365
+			min	max	media	destip
+	Cataluna	Paq: 84813	Cam: 365
+			min	max	media	destip
+	Valencia	Paq: 54162	Cam: 364
+			min	max	media	destip
+	Andalucia	Paq: 75721	Cam: 365
+			min	max	media	destip
+	Castilla	Paq: 54140	Cam: 365
+			min	max	media	destip
+	Galicia	Paq: 54727	Cam: 363
+			min	max	media	destip
+Galicia
+Paquetes enviados:	418519
+Paquetes Tardíos:	0
+Paquetes Tardíos %:	0.0
+Camiones enviados:	2182
+Estadisticas:	min	max	media	destip
+Dias Ocio Cam:	0	2	1.2108157653528873	0.5169114137715402
+Ocupacion Cam:	0.08143939483332933	84.91927712309192	19.196508555273134	14.516517806099626
+Espera Paq:	0	0	0.0	0.0
+Llegada Paq:	0	3	1.001070441246395	0.5682717826197013
+	Madrid	Paq: 95980	Cam: 364
+			min	max	media	destip
+	Cataluna	Paq: 83497	Cam: 365
+			min	max	media	destip
+	Valencia	Paq: 54197	Cam: 363
+			min	max	media	destip
+	Andalucia	Paq: 75832	Cam: 363
+			min	max	media	destip
+	Castilla	Paq: 54552	Cam: 363
+			min	max	media	destip
+	Pais_Vasco	Paq: 54461	Cam: 364
+			min	max	media	destip

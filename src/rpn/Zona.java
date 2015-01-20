@@ -131,6 +131,7 @@ class Zona {
                     ArrayList<Paquete> paq = paquetes_espera.get(prox_destino);
                     double capacidad = Camion.capacidad;
                     ArrayList<Integer> ind_paq = new ArrayList<>();
+                    camiones_espera.get(0).destino = prox_destino;
 
                     for (int i = paq.size() - 1; i >= 0; i--) {
 
@@ -145,11 +146,19 @@ class Zona {
                         //Como hemos recorrido el array de antesde final a inicio, podemos borrar los indices sin problema.
                         paq.remove((int) ind_paq1);
                     }
+
+                    envios.add(camiones_espera.get(0));
+                    camiones_espera.remove(0);
                 }
+
             }
 
-            envios.add(camiones_espera.get(0));
-            camiones_espera.remove(0);
+        }
+
+        //Los camiones no enviados esperan un dia mas
+        for (int i = 0; i < camiones_espera.size(); i++) {
+
+            camiones_espera.get(i).tiempo_espera++;
 
         }
 
@@ -233,16 +242,13 @@ class Zona {
         }
     }
 
-    void llegada_camiones(ArrayList<Camion> ent) {
+    void llegada_camion(Camion ent) {
 
-        for (Camion ent1 : ent) {
+        ent.tiempo_espera = 0;
+        ent.carga.clear();
+        ent.destino = -1;
 
-            ent1.tiempo_espera = 0;
-            ent1.carga.clear();
-
-        }
-
-        camiones_espera.addAll(ent);
+        camiones_espera.add(ent);
 
         Collections.sort(camiones_espera);
 
