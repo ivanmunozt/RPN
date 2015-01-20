@@ -47,6 +47,8 @@ public class RNP {
     static double capacidad_camiones;
     static double porcentaje_minimo;
 
+    static private Estadistica sim;
+
     /**
      * @param args the command line arguments
      */
@@ -56,7 +58,7 @@ public class RNP {
 
         limite_emulacion = 365;
 
-        Estadistica sim = new Estadistica(semilla, nZonas, nombre_zonas, limite_emulacion,
+        sim = new Estadistica(semilla, nZonas, nombre_zonas, limite_emulacion,
                 camiones_espera, probabilidad_destinos, media_generacion_paquetes,
                 desvTip_generacion_paquetes, media_tam, desvTip_tam, media_tiempo_limite,
                 desvTip_tiempo_limite, max_tiempo_limite, capacidad_camiones, porcentaje_minimo);
@@ -64,9 +66,21 @@ public class RNP {
         sim.iniciarSimulacion();
 
         String res = sim.toString();
-        
         System.out.println(res);
-        escribir_TXT(res);
+
+        
+        reanudar_simulacion(365);
+        
+        res = sim.toString();
+        System.out.println(res);
+
+        escribir_TXT(res.replace("\033[1m", "").replace("\033[0m", ""));
+
+    }
+
+    public static void reanudar_simulacion(int dias) {
+
+        sim.reanudarSimulacion(dias);
 
     }
 
@@ -439,7 +453,7 @@ public class RNP {
 //                        + " - " + max_tiempo_limite.get(i));
             }
 
-        } catch (Exception  pce) {
+        } catch (Exception pce) {
             System.err.println(pce.getMessage());
         }
 
