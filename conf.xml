@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Simulacion>
     <Semilla>1234567890</Semilla>
-    <Numero_Zonas>7</Numero_Zonas>
+    <Numero_zonas>7</Numero_zonas>
     <Dias_limite>365</Dias_limite>
     <Camiones>
         <Capacidad>1000.0</Capacidad>

@@ -15,6 +15,7 @@ class Camion implements Comparable<Camion> {
 
     int id;
     int tiempo_espera;
+    int destino;
     ArrayList<Paquete> carga;
     static double porcentaje_minimo;
     static double capacidad;
@@ -24,6 +25,7 @@ class Camion implements Comparable<Camion> {
         this.id = id;
         this.carga = new ArrayList<>();
         this.tiempo_espera = 0;
+        destino = -1;
 
     }
 
