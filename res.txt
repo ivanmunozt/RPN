@@ -15,10 +15,11 @@ Llegada Paq:	-1	3	1.000678543274043	0.5672255046773759
 Estadisticas por Zona:
 
 Madrid
-Paquetes enviados:	1315330
-Paquetes Tardíos:	38
-Paquetes Tardíos %:	0.002889008841887587
-Camiones enviados:	4377
+Paquetes Recibidos:	1219037
+Paquetes Enviados:	1315330
+Paquetes Env Tardíos:	38
+Paquetes Env Tardíos %:	0.002889008841887587
+Camiones Enviados:	4377
 Estadisticas:	min	max	media	destip
 Dias Ocio Cam:	0	2	0.2074480237605666	0.42635294319842104
 Ocupacion Cam:	0.06983691009643155	99.99754450574218	30.04677533157252	21.03242281567609
@@ -69,10 +70,11 @@ Llegada Paq:	-1	3	1.0003261538929393	0.5668945544524042
 
 
 Cataluna
-Paquetes enviados:	1169269
-Paquetes Tardíos:	118
-Paquetes Tardíos %:	0.010091775288663259
-Camiones enviados:	4374
+Paquetes Recibidos:	1146802
+Paquetes Enviados:	1169269
+Paquetes Env Tardíos:	118
+Paquetes Env Tardíos %:	0.010091775288663259
+Camiones Enviados:	4374
 Estadisticas:	min	max	media	destip
 Dias Ocio Cam:	0	2	0.17192501143118427	0.38332659128196106
 Ocupacion Cam:	0.08943331495576999	99.99950019013596	26.729133014827955	19.433579354497226
@@ -123,10 +125,11 @@ Llegada Paq:	-1	3	1.00018815174267	0.56764131791373
 
 
 Valencia
-Paquetes enviados:	853497
-Paquetes Tardíos:	114
-Paquetes Tardíos %:	0.013356813204967328
-Camiones enviados:	4366
+Paquetes Recibidos:	856042
+Paquetes Enviados:	853497
+Paquetes Env Tardíos:	114
+Paquetes Env Tardíos %:	0.013356813204967328
+Camiones Enviados:	4366
 Estadisticas:	min	max	media	destip
 Dias Ocio Cam:	0	1	0.56481905634448	0.49578068733524816
 Ocupacion Cam:	0.058872492724376294	86.52199130346321	19.548229826788752	14.320791420010263
@@ -177,10 +180,11 @@ Llegada Paq:	-1	3	1.0001909789958254	0.5675732112021928
 
 
 Andalucia
-Paquetes enviados:	1024341
-Paquetes Tardíos:	0
-Paquetes Tardíos %:	0.0
-Camiones enviados:	4370
+Paquetes Recibidos:	1108717
+Paquetes Enviados:	1024341
+Paquetes Env Tardíos:	0
+Paquetes Env Tardíos %:	0.0
+Camiones Enviados:	4370
 Estadisticas:	min	max	media	destip
 Dias Ocio Cam:	0	3	1.0908466819221967	0.7176962041714625
 Ocupacion Cam:	0.06496327794224849	99.97671058925368	23.444633845454366	16.76276674585754
@@ -231,10 +235,11 @@ Llegada Paq:	0	3	1.0028398746120677	0.5672068962210629
 
 
 Castilla
-Paquetes enviados:	870688
-Paquetes Tardíos:	0
-Paquetes Tardíos %:	0.0
-Camiones enviados:	4364
+Paquetes Recibidos:	854361
+Paquetes Enviados:	870688
+Paquetes Env Tardíos:	0
+Paquetes Env Tardíos %:	0.0
+Camiones Enviados:	4364
 Estadisticas:	min	max	media	destip
 Dias Ocio Cam:	0	3	1.2901008249312558	0.7000609433397831
 Ocupacion Cam:	0.08506669106918785	99.96003750312867	19.94445347502735	14.90720158712024
@@ -285,10 +290,11 @@ Llegada Paq:	0	3	1.0004283968539822	0.5662056357475299
 
 
 Pais_Vasco
-Paquetes enviados:	836634
-Paquetes Tardíos:	124
-Paquetes Tardíos %:	0.014821295811549614
-Camiones enviados:	4372
+Paquetes Recibidos:	857651
+Paquetes Enviados:	836634
+Paquetes Env Tardíos:	124
+Paquetes Env Tardíos %:	0.014821295811549614
+Camiones Enviados:	4372
 Estadisticas:	min	max	media	destip
 Dias Ocio Cam:	0	1	0.42680695333943275	0.494613766408239
 Ocupacion Cam:	0.07482666581755759	88.03011333610422	19.14055586143743	13.955684028990676
@@ -339,10 +345,11 @@ Llegada Paq:	-1	3	1.000503206898118	0.5672699352452729
 
 
 Galicia
-Paquetes enviados:	834738
-Paquetes Tardíos:	122
-Paquetes Tardíos %:	0.014615364341865352
-Camiones enviados:	4367
+Paquetes Recibidos:	861887
+Paquetes Enviados:	834738
+Paquetes Env Tardíos:	122
+Paquetes Env Tardíos %:	0.014615364341865352
+Camiones Enviados:	4367
 Estadisticas:	min	max	media	destip
 Dias Ocio Cam:	0	2	0.9260361804442409	0.580799115935585
 Ocupacion Cam:	0.08143939483332933	92.34682339999009	19.119629844332547	14.461876729936773

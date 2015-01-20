@@ -449,7 +449,20 @@ public class Estadistica {
         for (int i = 0; i < nZonas; i++) {
 
             ret += "\033[1m" + nombre_zonas.get(i) + "\033[0m\n";
+            
+            auxl = 0;
 
+            for (int j = 0; j < nZonas; j++) {
+
+                if (i != j) {
+                    s = j + "-" + i;
+
+                    auxl += paquetes_enviados.get(s);
+                }
+            }
+
+            ret += "Paquetes Recibidos:\t" + auxl + "\n";
+            
             auxl = 0;
 
             for (int j = 0; j < nZonas; j++) {
@@ -461,12 +474,12 @@ public class Estadistica {
                 }
             }
 
-            ret += "Paquetes enviados:\t" + auxl + "\n";
+            ret += "Paquetes Enviados:\t" + auxl + "\n";
 
             tar = getTardios(i, -1);
-            ret += "Paquetes Tardíos:\t" + tar + "\n";
+            ret += "Paquetes Env Tardíos:\t" + tar + "\n";
 
-            ret += "Paquetes Tardíos %:\t" + (tar * 100.0) / auxl + "\n";
+            ret += "Paquetes Env Tardíos %:\t" + (tar * 100.0) / auxl + "\n";
 
             auxl = 0;
 
@@ -479,7 +492,7 @@ public class Estadistica {
                 }
             }
 
-            ret += "Camiones enviados:\t" + auxl + "\n";
+            ret += "Camiones Enviados:\t" + auxl + "\n";
 
             ret += "\033[1mEstadisticas:\tmin\tmax\tmedia\tdestip\033[0m\n";
 
