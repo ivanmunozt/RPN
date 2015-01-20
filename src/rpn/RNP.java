@@ -65,7 +65,7 @@ public class RNP {
         sim.iniciarSimulacion();
 
         String res = sim.toString();
-
+        
         System.out.println(res);
         escribir_TXT(res);
 
