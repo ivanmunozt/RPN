@@ -93,6 +93,7 @@ public class Resultados extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Resultados");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);

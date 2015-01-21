@@ -6,7 +6,6 @@
 package rpn;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Random;
@@ -372,6 +371,7 @@ public class Estadistica {
         }
         ret += "Paquetes enviados:\t" + auxl + "\n";
 
+        
         int tar = getTardios(-1, -1);
         ret += "Paquetes Tardíos:\t" + tar + "\n";
 

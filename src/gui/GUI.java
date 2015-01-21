@@ -21,6 +21,7 @@ import javax.swing.InputVerifier;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
@@ -245,8 +246,6 @@ public class GUI extends javax.swing.JFrame {
         max_tiempo_limite.add(4);
         max_tiempo_limite.add(4);
         max_tiempo_limite.add(4);
-
-        escribir_XML();
 
     }
 
@@ -517,6 +516,7 @@ public class GUI extends javax.swing.JFrame {
         bIniciar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Red Nacional de Paqueteria");
         setResizable(false);
 
         jPanel1.setMinimumSize(new java.awt.Dimension(0, 0));
@@ -528,7 +528,7 @@ public class GUI extends javax.swing.JFrame {
                 String cadena = ((JTextField)tf).getText();
                 // Aqui verificamos si cadena es correcta y devolvemos
                 try {
-                    Integer.parseInt(cadena);
+                    limite_emulacion = Integer.parseInt(cadena);
                     return true;
                 } catch (NumberFormatException nfe){
                     return false;
@@ -542,7 +542,8 @@ public class GUI extends javax.swing.JFrame {
             String cadena = ((JTextField)tf).getText();
             // Aqui verificamos si cadena es correcta y devolvemos
             try {
-                Integer.parseInt(cadena);
+                semilla = Integer.parseInt(cadena);
+
                 return true;
             } catch (NumberFormatException nfe){
                 return false;
@@ -564,7 +565,7 @@ public class GUI extends javax.swing.JFrame {
             String cadena = ((JTextField)tf).getText();
             // Aqui verificamos si cadena es correcta y devolvemos
             try {
-                Double.parseDouble(cadena);
+                capacidad_camiones = Double.parseDouble(cadena);
                 return true;
             } catch (NumberFormatException nfe){
                 return false;
@@ -577,7 +578,7 @@ public class GUI extends javax.swing.JFrame {
             String cadena = ((JTextField)tf).getText();
             // Aqui verificamos si cadena es correcta y devolvemos
             try {
-                Double.parseDouble(cadena);
+                porcentaje_minimo = Double.parseDouble(cadena);
                 return true;
             } catch (NumberFormatException nfe){
                 return false;
@@ -663,8 +664,14 @@ public class GUI extends javax.swing.JFrame {
         public boolean verify(JComponent tf) {
             String cadena = ((JTextField)tf).getText();
             // Aqui verificamos si cadena es correcta y devolvemos
-            if(cadena.replace(" ", "").length() == 0)       return false;
-            else                                            return true;
+            if(cadena.replace(" ", "").length() == 0 || nombre_zonas.indexOf(cadena) >= 0){
+                return false;
+            }
+            else{
+                nombre_zonas.set(idZona, cadena);
+                rellenar_GUI();
+                return true;
+            }
         }
     });
     Tnombre.addActionListener(new java.awt.event.ActionListener() {
@@ -680,7 +687,7 @@ public class GUI extends javax.swing.JFrame {
             String cadena = ((JTextField)tf).getText();
             // Aqui verificamos si cadena es correcta y devolvemos
             try {
-                Double.parseDouble(cadena);
+                media_generacion_paquetes.set(idZona, Double.parseDouble(cadena));
                 return true;
             } catch (NumberFormatException nfe){
                 return false;
@@ -700,7 +707,7 @@ public class GUI extends javax.swing.JFrame {
             String cadena = ((JTextField)tf).getText();
             // Aqui verificamos si cadena es correcta y devolvemos
             try {
-                Integer.parseInt(cadena);
+                camiones_espera.set(idZona, Integer.parseInt(cadena));
                 return true;
             } catch (NumberFormatException nfe){
                 return false;
@@ -718,7 +725,7 @@ public class GUI extends javax.swing.JFrame {
             String cadena = ((JTextField)tf).getText();
             // Aqui verificamos si cadena es correcta y devolvemos
             try {
-                Double.parseDouble(cadena);
+                desvTip_generacion_paquetes.set(idZona, Double.parseDouble(cadena));
                 return true;
             } catch (NumberFormatException nfe){
                 return false;
@@ -743,7 +750,7 @@ public class GUI extends javax.swing.JFrame {
             String cadena = ((JTextField)tf).getText();
             // Aqui verificamos si cadena es correcta y devolvemos
             try {
-                Double.parseDouble(cadena);
+                media_tam.set(idZona, Double.parseDouble(cadena));
                 return true;
             } catch (NumberFormatException nfe){
                 return false;
@@ -761,7 +768,7 @@ public class GUI extends javax.swing.JFrame {
             String cadena = ((JTextField)tf).getText();
             // Aqui verificamos si cadena es correcta y devolvemos
             try {
-                Double.parseDouble(cadena);
+                desvTip_tam.set(idZona, Double.parseDouble(cadena));
                 return true;
             } catch (NumberFormatException nfe){
                 return false;
@@ -783,7 +790,7 @@ public class GUI extends javax.swing.JFrame {
             String cadena = ((JTextField)tf).getText();
             // Aqui verificamos si cadena es correcta y devolvemos
             try {
-                Double.parseDouble(cadena);
+                media_tiempo_limite.set(idZona, Double.parseDouble(cadena));
                 return true;
             } catch (NumberFormatException nfe){
                 return false;
@@ -801,7 +808,7 @@ public class GUI extends javax.swing.JFrame {
             String cadena = ((JTextField)tf).getText();
             // Aqui verificamos si cadena es correcta y devolvemos
             try {
-                Double.parseDouble(cadena);
+                desvTip_tiempo_limite.set(idZona, Double.parseDouble(cadena));
                 return true;
             } catch (NumberFormatException nfe){
                 return false;
@@ -819,7 +826,7 @@ public class GUI extends javax.swing.JFrame {
             String cadena = ((JTextField)tf).getText();
             // Aqui verificamos si cadena es correcta y devolvemos
             try {
-                Integer.parseInt(cadena);
+                max_tiempo_limite.set(idZona, Integer.parseInt(cadena));
                 return true;
             } catch (NumberFormatException nfe){
                 return false;
@@ -841,7 +848,7 @@ public class GUI extends javax.swing.JFrame {
             String cadena = ((JTextField)tf).getText();
             // Aqui verificamos si cadena es correcta y devolvemos
             try {
-                Double.parseDouble(cadena);
+                probabilidad_destinos.get(idZona).set(nombre_zonas.indexOf(SelDest.getSelectedItem()), Double.parseDouble(cadena));
                 return true;
             } catch (NumberFormatException nfe){
                 return false;
@@ -1012,7 +1019,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 373, Short.MAX_VALUE)
                     .addGap(12, 12, 12))
                 .addGroup(layout.createSequentialGroup()
                     .addGap(46, 46, 46)
@@ -1097,18 +1104,43 @@ public class GUI extends javax.swing.JFrame {
 
     private void bIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIniciarActionPerformed
 
-        ArrayList<ArrayList<Double>> prob = new ArrayList<>();
-        
-        for (int i = 0; i < nZonas; i++) {
-            
-            prob.add(new ArrayList<>(probabilidad_destinos.get(i)));
-            
+        //Si la suma de probabilidades no da 1
+        boolean continuar = true;
+
+        for (int i = 0; i < probabilidad_destinos.size(); i++) {
+
+            Double sum = 0.0;
+
+            for (Double d : probabilidad_destinos.get(i)) {
+
+                sum += d;
+
+            }
+
+            if (sum != 1.0 && continuar) {
+
+                continuar = false;
+                               
+                JOptionPane.showMessageDialog(this, "La suma de probabilidades de la zona " + nombre_zonas.get(i) + " no es 1 ", "Error" , JOptionPane.WARNING_MESSAGE);
+                
+            }
         }
-        
-        new Resultados(new Estadistica(semilla, nZonas, new ArrayList<>(nombre_zonas), limite_emulacion,
-                new ArrayList<>(camiones_espera), prob, new ArrayList<>(media_generacion_paquetes),
-                new ArrayList<>(desvTip_generacion_paquetes), new ArrayList<>(media_tam), new ArrayList<>(desvTip_tam), new ArrayList<>(media_tiempo_limite),
-                new ArrayList<>(desvTip_tiempo_limite), new ArrayList<>(max_tiempo_limite), capacidad_camiones, porcentaje_minimo)).setVisible(true);
+
+        if (continuar) {
+            ArrayList<ArrayList<Double>> prob = new ArrayList<>();
+
+            for (int i = 0; i < nZonas; i++) {
+
+                prob.add(new ArrayList<>(probabilidad_destinos.get(i)));
+
+            }
+
+            new Resultados(new Estadistica(semilla, nZonas, new ArrayList<>(nombre_zonas), limite_emulacion,
+                    new ArrayList<>(camiones_espera), prob, new ArrayList<>(media_generacion_paquetes),
+                    new ArrayList<>(desvTip_generacion_paquetes), new ArrayList<>(media_tam), new ArrayList<>(desvTip_tam), new ArrayList<>(media_tiempo_limite),
+                    new ArrayList<>(desvTip_tiempo_limite), new ArrayList<>(max_tiempo_limite), capacidad_camiones, porcentaje_minimo)).setVisible(true);
+
+        }
 
     }//GEN-LAST:event_bIniciarActionPerformed
 
@@ -1144,10 +1176,8 @@ public class GUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUI().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new GUI().setVisible(true);
         });
     }
 
@@ -1241,7 +1271,7 @@ public class GUI extends javax.swing.JFrame {
 
         SelDest.select(0);
 
-        Tdestino.setText(String.valueOf(probabilidad_destinos.get(idZona).get(nombre_zonas.indexOf(SelDest.getItem(SelDest.getSelectedIndex())))));
+        Tdestino.setText(String.valueOf(probabilidad_destinos.get(idZona).get(nombre_zonas.indexOf(SelDest.getSelectedItem()))));
 
     }
 }
