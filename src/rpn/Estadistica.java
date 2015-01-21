@@ -87,9 +87,11 @@ public class Estadistica {
 
             zonas.add(new Zona(i, nZonas, camiones.get(i), probabilidad_destinos.get(i), this,
                     media_generacion_paquetes.get(i), desvTip_generacion_paquetes.get(i),
-                    media_tam.get(i), desvTip_tam.get(i), media_tiempo_limite.get(i), desvTip_tiempo_limite.get(i), max_tiempo_limite.get(i)));
+                    media_tam.get(i), desvTip_tam.get(i), media_tiempo_limite.get(i), 
+                    desvTip_tiempo_limite.get(i), max_tiempo_limite.get(i)));
 
         }
+        
         paquetes_enviados = new HashMap<>();
         tiempo_llegada_acum = new HashMap<>();
         tiempo_espera_acum = new HashMap<>();
@@ -153,9 +155,8 @@ public class Estadistica {
 
             ArrayList<Camion> pendientes = zonas.get(i).enviar_camiones();
 
-            for (int j = 0; j < pendientes.size(); j++) {
-
-                Camion camion = pendientes.get(j);
+            for (Camion camion : pendientes) {
+                
                 String s = i + "-" + camion.destino;
 
                 camiones_enviados.put(s, camiones_enviados.get(s) + 1);
@@ -178,7 +179,6 @@ public class Estadistica {
                 paquetes_enviados.put(s, paquetes_enviados.get(s) + nPaq);
 
                 zonas.get(camion.destino).llegada_camion(camion);
-
             }
 
         }
@@ -564,7 +564,7 @@ public class Estadistica {
                     tar = getTardios(i, j);
 
                     ret += "\t\033[1m" + nombre_zonas.get(j) + "\033[0m   \tPaq: " + paquetes_enviados.get(s) + "\tCam: " + camiones_enviados.get(s) + "\n"
-                            + "\t\t\tTard: " + tar + "\t" + tar / paquetes_enviados.get(s) + "\n"
+                            + "\t\t\tTard: " + tar + "\t%: " + tar / paquetes_enviados.get(s) + "\n"
                             + "\033[1m\t\t\tmin\tmax\tmedia\tdestip\033[0m\n";
 
                     tot_ocup = ocupacion_camiones.get(s);

@@ -56,8 +56,6 @@ public class GUI extends javax.swing.JFrame {
     double capacidad_camiones;
     double porcentaje_minimo;
 
-    static private Estadistica sim;
-
     /**
      * Creates new form GUI
      */
@@ -75,12 +73,12 @@ public class GUI extends javax.swing.JFrame {
 
             }
         });
-        
+
         SelZona.addItemListener(new ItemListener() {
 
             @Override
             public void itemStateChanged(ItemEvent e) {
-                
+
                 idZona = nombre_zonas.indexOf(SelZona.getItem(SelZona.getSelectedIndex()));
                 rellenar_Zona();
 
@@ -93,7 +91,7 @@ public class GUI extends javax.swing.JFrame {
 
     }
 
-    public void reiniciar() {
+    private void reiniciar_valores() {
 
         semilla = 1234567890;
         nZonas = 7;
@@ -385,7 +383,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }
 
-    void leer_XML() {
+    private void leer_XML() {
 
         nombre_zonas = new ArrayList<>();
         camiones_espera = new ArrayList<>();
@@ -468,30 +466,6 @@ public class GUI extends javax.swing.JFrame {
 
     }
 
-    void escribir_TXT(String res) {
-
-        FileWriter fichero = null;
-        PrintWriter pw;
-        try {
-            fichero = new FileWriter("res.txt");
-            pw = new PrintWriter(fichero);
-
-            pw.print(res);
-
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        } finally {
-            try {
-
-                if (null != fichero) {
-                    fichero.close();
-                }
-            } catch (Exception e2) {
-                System.err.println(e2.getMessage());
-            }
-        }
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -543,6 +517,7 @@ public class GUI extends javax.swing.JFrame {
         bIniciar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setMinimumSize(new java.awt.Dimension(0, 0));
 
@@ -1095,19 +1070,46 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_TdestinoActionPerformed
 
     private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
-        // TODO add your handling code here:
+
+        escribir_XML();
+
     }//GEN-LAST:event_bGuardarActionPerformed
 
     private void bCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCargarActionPerformed
-        // TODO add your handling code here:
+
+        leer_XML();
+
+        idZona = 0;
+
+        rellenar_GUI();
+
     }//GEN-LAST:event_bCargarActionPerformed
 
     private void bDefaultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDefaultActionPerformed
-        // TODO add your handling code here:
+
+        reiniciar_valores();
+
+        idZona = 0;
+
+        rellenar_GUI();
+
     }//GEN-LAST:event_bDefaultActionPerformed
 
     private void bIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIniciarActionPerformed
-        // TODO add your handling code here:
+
+        ArrayList<ArrayList<Double>> prob = new ArrayList<>();
+        
+        for (int i = 0; i < nZonas; i++) {
+            
+            prob.add(new ArrayList<>(probabilidad_destinos.get(i)));
+            
+        }
+        
+        new Resultados(new Estadistica(semilla, nZonas, new ArrayList<>(nombre_zonas), limite_emulacion,
+                new ArrayList<>(camiones_espera), prob, new ArrayList<>(media_generacion_paquetes),
+                new ArrayList<>(desvTip_generacion_paquetes), new ArrayList<>(media_tam), new ArrayList<>(desvTip_tam), new ArrayList<>(media_tiempo_limite),
+                new ArrayList<>(desvTip_tiempo_limite), new ArrayList<>(max_tiempo_limite), capacidad_camiones, porcentaje_minimo)).setVisible(true);
+
     }//GEN-LAST:event_bIniciarActionPerformed
 
     private void TsemillasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TsemillasActionPerformed
@@ -1200,15 +1202,14 @@ public class GUI extends javax.swing.JFrame {
         Tporcentaje.setText(String.valueOf(porcentaje_minimo));
 
         SelZona.removeAll();
-        
+
         for (int i = 0; i < nZonas; i++) {
 
             SelZona.add(nombre_zonas.get(i));
 
         }
-        
+
         SelZona.select(idZona);
-        
 
         rellenar_Zona();
 
