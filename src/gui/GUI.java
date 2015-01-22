@@ -7,25 +7,16 @@ package gui;
 
 import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -412,12 +403,11 @@ public class GUI extends javax.swing.JFrame {
             int cont = 0;
             ArrayList<String> txt = new ArrayList<>();
 
-            for (int i = 0; i < arrayTXT.length; i++) {
-
-                if (!"".equals(arrayTXT[i])) {
-                    txt.add(arrayTXT[i]);
+            for (String itxt : arrayTXT) {
+                
+                if (!"".equals(itxt)) {
+                    txt.add(itxt);
                 }
-
             }
 
             semilla = Integer.parseInt(txt.get(cont));
@@ -514,6 +504,7 @@ public class GUI extends javax.swing.JFrame {
         bCargar = new javax.swing.JButton();
         bDefault = new javax.swing.JButton();
         bIniciar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Red Nacional de Paqueteria");
@@ -993,6 +984,13 @@ public class GUI extends javax.swing.JFrame {
         }
     });
 
+    jButton1.setText("Generador Conguencial");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton1ActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
@@ -1008,7 +1006,8 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(bDefault, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bCargar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bIniciar, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))))
+                        .addComponent(bIniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     layout.setVerticalGroup(
@@ -1016,21 +1015,22 @@ public class GUI extends javax.swing.JFrame {
         .addGroup(layout.createSequentialGroup()
             .addContainerGap()
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 373, Short.MAX_VALUE)
                     .addGap(12, 12, 12))
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(46, 46, 46)
                     .addComponent(bGuardar)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(bCargar)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(bDefault)
-                    .addGap(83, 83, 83)
+                    .addGap(99, 99, 99)
+                    .addComponent(jButton1)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bIniciar)
-                    .addContainerGap(138, Short.MAX_VALUE))))
+                    .addGap(28, 28, 28))))
     );
 
     pack();
@@ -1148,6 +1148,12 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TsemillasActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        Congruencial.getInstance().setVisible(true);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1202,6 +1208,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton bDefault;
     private javax.swing.JButton bGuardar;
     private javax.swing.JButton bIniciar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

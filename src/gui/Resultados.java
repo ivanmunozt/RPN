@@ -9,7 +9,6 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JTextField;
 import rpn.Estadistica;
 

@@ -156,10 +156,8 @@ class Zona {
         }
 
         //Los camiones no enviados esperan un dia mas
-        for (int i = 0; i < camiones_espera.size(); i++) {
-
-            camiones_espera.get(i).tiempo_espera++;
-
+        for (Camion cam : camiones_espera) {
+            cam.tiempo_espera++;
         }
 
         return envios;
