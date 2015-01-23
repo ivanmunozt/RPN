@@ -442,7 +442,7 @@ public class Estadistica {
             desvTip = desvTipInt(tot_lleg, media);
             mini = Collections.min(tot_lleg);
             maxi = Collections.max(tot_lleg);
-            ret += "Llegada Paq:\t" + mini + "\t" + maxi + "\t" + media + "\t" + desvTip + "\n";
+            ret += "Llegada Paq:\t" + maxi + "\t" + mini + "\t" + media + "\t" + desvTip + "\n";
 
             /////////----------------------------Zonas
             ret += "\n\033[1mEstadisticas por Zona:\033[0m\n\n";
@@ -557,7 +557,7 @@ public class Estadistica {
                     desvTip = desvTipInt(tot_lleg, media);
                     mini = Collections.min(tot_lleg);
                     maxi = Collections.max(tot_lleg);
-                    ret += "Llegada Paq:\t" + mini + "\t" + maxi + "\t" + media + "\t" + desvTip + "\n\n";
+                    ret += "Llegada Paq:\t" + maxi + "\t" + mini + "\t" + media + "\t" + desvTip + "\n\n";
 
                     /////////----------------------------Zona a Zona
                     for (int j = 0; j < nZonas; j++) {
@@ -569,7 +569,7 @@ public class Estadistica {
                                 tar = getTardios(i, j);
 
                                 ret += "\t\033[1m" + nombre_zonas.get(j) + "\033[0m   \tPaq: " + paquetes_enviados.get(s) + "\tCam: " + camiones_enviados.get(s) + "\n"
-                                        + "\t\t\tTard: " + tar + "\t%: " + tar / paquetes_enviados.get(s) + "\n"
+                                        + "\t\t\tTard: " + tar + "\t%: " + (tar * 100.0) / paquetes_enviados.get(s) + "\n"
                                         + "\033[1m\t\t\tmin\tmax\tmedia\tdestip\033[0m\n";
 
                                 tot_ocup = ocupacion_camiones.get(s);
@@ -591,7 +591,7 @@ public class Estadistica {
                                 desvTip = desvTipInt(tot_lleg, media);
                                 mini = Collections.min(tot_lleg);
                                 maxi = Collections.max(tot_lleg);
-                                ret += "\tLlegada Paq:\t" + mini + "\t" + maxi + "\t" + media + "\t" + desvTip + "\n\n";
+                                ret += "\tLlegada Paq:\t" + maxi + "\t" + mini + "\t" + media + "\t" + desvTip + "\n\n";
                             }
                         }
                     }

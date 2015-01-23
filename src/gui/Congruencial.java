@@ -294,11 +294,11 @@ public class Congruencial extends javax.swing.JDialog {
 
     private void bLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimpiarActionPerformed
 
-        ta.setText("");
-        tc.setText("");
-        tx.setText("");
-        tm.setText("");
-        tr.setText("");
+        ta.setText("0");
+        tc.setText("0");
+        tx.setText("0");
+        tm.setText("0");
+        tr.setText("0");
 
     }//GEN-LAST:event_bLimpiarActionPerformed
 

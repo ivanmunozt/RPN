@@ -577,7 +577,7 @@ public class GUI extends javax.swing.JFrame {
         }
     });
 
-    jLabel4.setText("Porcentaje Minimo camiones");
+    jLabel4.setText("Ocuapcion Mínima Camiones");
 
     jLabel5.setText("Zona");
 
