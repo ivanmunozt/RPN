@@ -60,7 +60,7 @@ public class Estadistica {
 
         //Inicializacion de objetos
         Camion.capacidad = capacidad_camiones;
-        Camion.porcentaje_minimo = capacidad_camiones;
+        Camion.porcentaje_minimo = porcentaje_minimo;
 
         ArrayList<ArrayList<Camion>> camiones = new ArrayList<>();
         int idCam = 0;
@@ -150,9 +150,24 @@ public class Estadistica {
 
         dia++;
 
+        ArrayList<ArrayList<Camion>> cams = new ArrayList<>();
+
         for (int i = 0; i < nZonas; i++) {
 
-            ArrayList<Camion> pendientes = zonas.get(i).enviar_camiones();
+            cams.add(zonas.get(i).enviar_camiones());
+
+        }
+        
+        for (int i = 0; i < nZonas; i++) {
+
+            cams.get(i).addAll(zonas.get(i).repartir_camiones());
+
+        }
+        
+
+        for (int i = 0; i < nZonas; i++) {
+
+            ArrayList<Camion> pendientes = cams.get(i);
 
             for (Camion camion : pendientes) {
 
@@ -604,6 +619,45 @@ public class Estadistica {
         }
 
         return ret;
+    }
+
+    ArrayList<Integer> get_zonas_mas_ocupada() {
+
+        ArrayList<Long> zon = new ArrayList<>();
+        ArrayList<Integer> ind = new ArrayList<>();
+
+        for (int i = 0; i < nZonas; i++) {
+
+            long n = 0;
+
+            for (ArrayList<Paquete> list : zonas.get(i).paquetes_espera) {
+
+                n += list.size();
+
+            }
+
+            zon.add(n);
+            ind.add(i);
+
+        }
+
+        for (int i = 0; i < zon.size(); i++) {
+
+            for (int j = 0; j < zon.size() - 1; j++) {
+
+                if (zon.get(j) < zon.get(j + 1)) {
+
+                    Collections.swap(ind, j, j + 1);
+                    Collections.swap(zon, j, j + 1);
+
+                }
+
+            }
+
+        }
+
+        return ind;
+
     }
 
 }

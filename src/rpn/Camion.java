@@ -32,7 +32,7 @@ class Camion implements Comparable<Camion> {
     @Override
     public int compareTo(Camion o) { //ponemos primero los camiones que tienen mas tiempo de espera
 
-        return o.tiempo_espera - this.tiempo_espera;
+        return this.tiempo_espera - o.tiempo_espera;
 
     }
 

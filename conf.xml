@@ -5,12 +5,12 @@
     <Dias_limite>365</Dias_limite>
     <Camiones>
         <Capacidad>1000.0</Capacidad>
-        <Porcentaje_minimo>0.3</Porcentaje_minimo>
+        <Porcentaje_minimo>0.7</Porcentaje_minimo>
     </Camiones>
     <Zonas>
         <Zona_0>
             <Nombre>Madrid</Nombre>
-            <Camiones_espera>7</Camiones_espera>
+            <Camiones_espera>6</Camiones_espera>
             <Probabilidad_destinos>
                 <Zona_0>0.0</Zona_0>
                 <Zona_1>0.2</Zona_1>
@@ -22,15 +22,15 @@
             </Probabilidad_destinos>
             <Media_generacion_paquetes>1600.0</Media_generacion_paquetes>
             <Desviacion_tipica_generacion_paquetes>250.0</Desviacion_tipica_generacion_paquetes>
-            <Media_tamano_paquetes>1.0</Media_tamano_paquetes>
+            <Media_tamano_paquetes>1.5</Media_tamano_paquetes>
             <Desviacion_tipica_tamano_paquetes>0.25</Desviacion_tipica_tamano_paquetes>
-            <Media_tiempo_limite>2.0</Media_tiempo_limite>
+            <Media_tiempo_limite>3.0</Media_tiempo_limite>
             <Desviacion_tipica_tiemp_limite>0.5</Desviacion_tipica_tiemp_limite>
             <Tiempo_limite_maximo>4</Tiempo_limite_maximo>
         </Zona_0>
         <Zona_1>
             <Nombre>Cataluna</Nombre>
-            <Camiones_espera>7</Camiones_espera>
+            <Camiones_espera>6</Camiones_espera>
             <Probabilidad_destinos>
                 <Zona_0>0.2</Zona_0>
                 <Zona_1>0.0</Zona_1>
@@ -42,15 +42,15 @@
             </Probabilidad_destinos>
             <Media_generacion_paquetes>1400.0</Media_generacion_paquetes>
             <Desviacion_tipica_generacion_paquetes>250.0</Desviacion_tipica_generacion_paquetes>
-            <Media_tamano_paquetes>1.0</Media_tamano_paquetes>
+            <Media_tamano_paquetes>1.5</Media_tamano_paquetes>
             <Desviacion_tipica_tamano_paquetes>0.25</Desviacion_tipica_tamano_paquetes>
-            <Media_tiempo_limite>2.0</Media_tiempo_limite>
+            <Media_tiempo_limite>3.0</Media_tiempo_limite>
             <Desviacion_tipica_tiemp_limite>0.5</Desviacion_tipica_tiemp_limite>
             <Tiempo_limite_maximo>4</Tiempo_limite_maximo>
         </Zona_1>
         <Zona_2>
             <Nombre>Valencia</Nombre>
-            <Camiones_espera>7</Camiones_espera>
+            <Camiones_espera>6</Camiones_espera>
             <Probabilidad_destinos>
                 <Zona_0>0.23</Zona_0>
                 <Zona_1>0.2</Zona_1>
@@ -62,15 +62,15 @@
             </Probabilidad_destinos>
             <Media_generacion_paquetes>1000.0</Media_generacion_paquetes>
             <Desviacion_tipica_generacion_paquetes>250.0</Desviacion_tipica_generacion_paquetes>
-            <Media_tamano_paquetes>1.0</Media_tamano_paquetes>
+            <Media_tamano_paquetes>1.5</Media_tamano_paquetes>
             <Desviacion_tipica_tamano_paquetes>0.25</Desviacion_tipica_tamano_paquetes>
-            <Media_tiempo_limite>2.0</Media_tiempo_limite>
+            <Media_tiempo_limite>3.0</Media_tiempo_limite>
             <Desviacion_tipica_tiemp_limite>0.5</Desviacion_tipica_tiemp_limite>
             <Tiempo_limite_maximo>4</Tiempo_limite_maximo>
         </Zona_2>
         <Zona_3>
             <Nombre>Andalucia</Nombre>
-            <Camiones_espera>7</Camiones_espera>
+            <Camiones_espera>6</Camiones_espera>
             <Probabilidad_destinos>
                 <Zona_0>0.2</Zona_0>
                 <Zona_1>0.2</Zona_1>
@@ -82,15 +82,15 @@
             </Probabilidad_destinos>
             <Media_generacion_paquetes>1200.0</Media_generacion_paquetes>
             <Desviacion_tipica_generacion_paquetes>250.0</Desviacion_tipica_generacion_paquetes>
-            <Media_tamano_paquetes>1.0</Media_tamano_paquetes>
+            <Media_tamano_paquetes>1.5</Media_tamano_paquetes>
             <Desviacion_tipica_tamano_paquetes>0.25</Desviacion_tipica_tamano_paquetes>
-            <Media_tiempo_limite>2.0</Media_tiempo_limite>
+            <Media_tiempo_limite>3.0</Media_tiempo_limite>
             <Desviacion_tipica_tiemp_limite>0.5</Desviacion_tipica_tiemp_limite>
             <Tiempo_limite_maximo>4</Tiempo_limite_maximo>
         </Zona_3>
         <Zona_4>
             <Nombre>Castilla</Nombre>
-            <Camiones_espera>7</Camiones_espera>
+            <Camiones_espera>6</Camiones_espera>
             <Probabilidad_destinos>
                 <Zona_0>0.23</Zona_0>
                 <Zona_1>0.2</Zona_1>
@@ -102,15 +102,15 @@
             </Probabilidad_destinos>
             <Media_generacion_paquetes>1000.0</Media_generacion_paquetes>
             <Desviacion_tipica_generacion_paquetes>250.0</Desviacion_tipica_generacion_paquetes>
-            <Media_tamano_paquetes>1.0</Media_tamano_paquetes>
+            <Media_tamano_paquetes>1.5</Media_tamano_paquetes>
             <Desviacion_tipica_tamano_paquetes>0.25</Desviacion_tipica_tamano_paquetes>
-            <Media_tiempo_limite>2.0</Media_tiempo_limite>
+            <Media_tiempo_limite>3.0</Media_tiempo_limite>
             <Desviacion_tipica_tiemp_limite>0.5</Desviacion_tipica_tiemp_limite>
             <Tiempo_limite_maximo>4</Tiempo_limite_maximo>
         </Zona_4>
         <Zona_5>
             <Nombre>Pais_Vasco</Nombre>
-            <Camiones_espera>7</Camiones_espera>
+            <Camiones_espera>6</Camiones_espera>
             <Probabilidad_destinos>
                 <Zona_0>0.23</Zona_0>
                 <Zona_1>0.2</Zona_1>
@@ -122,15 +122,15 @@
             </Probabilidad_destinos>
             <Media_generacion_paquetes>1000.0</Media_generacion_paquetes>
             <Desviacion_tipica_generacion_paquetes>250.0</Desviacion_tipica_generacion_paquetes>
-            <Media_tamano_paquetes>1.0</Media_tamano_paquetes>
+            <Media_tamano_paquetes>1.5</Media_tamano_paquetes>
             <Desviacion_tipica_tamano_paquetes>0.25</Desviacion_tipica_tamano_paquetes>
-            <Media_tiempo_limite>2.0</Media_tiempo_limite>
+            <Media_tiempo_limite>3.0</Media_tiempo_limite>
             <Desviacion_tipica_tiemp_limite>0.5</Desviacion_tipica_tiemp_limite>
             <Tiempo_limite_maximo>4</Tiempo_limite_maximo>
         </Zona_5>
         <Zona_6>
             <Nombre>Galicia</Nombre>
-            <Camiones_espera>7</Camiones_espera>
+            <Camiones_espera>6</Camiones_espera>
             <Probabilidad_destinos>
                 <Zona_0>0.23</Zona_0>
                 <Zona_1>0.2</Zona_1>
@@ -142,9 +142,9 @@
             </Probabilidad_destinos>
             <Media_generacion_paquetes>1000.0</Media_generacion_paquetes>
             <Desviacion_tipica_generacion_paquetes>250.0</Desviacion_tipica_generacion_paquetes>
-            <Media_tamano_paquetes>1.0</Media_tamano_paquetes>
+            <Media_tamano_paquetes>1.5</Media_tamano_paquetes>
             <Desviacion_tipica_tamano_paquetes>0.25</Desviacion_tipica_tamano_paquetes>
-            <Media_tiempo_limite>2.0</Media_tiempo_limite>
+            <Media_tiempo_limite>3.0</Media_tiempo_limite>
             <Desviacion_tipica_tiemp_limite>0.5</Desviacion_tipica_tiemp_limite>
             <Tiempo_limite_maximo>4</Tiempo_limite_maximo>
         </Zona_6>

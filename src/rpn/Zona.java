@@ -130,21 +130,15 @@ class Zona {
 
                     ArrayList<Paquete> paq = paquetes_espera.get(prox_destino);
                     double capacidad = Camion.capacidad;
-                    ArrayList<Integer> ind_paq = new ArrayList<>();
                     camiones_espera.get(0).destino = prox_destino;
 
                     for (int i = paq.size() - 1; i >= 0; i--) {
 
                         if (paq.get(i).tamaño <= capacidad) {
                             capacidad -= paq.get(i).tamaño;
-                            ind_paq.add(i);
                             camiones_espera.get(0).carga.add(paq.get(i));
+                            paq.remove(i);
                         }
-                    }
-
-                    for (Integer ind_paq1 : ind_paq) {
-                        //Como hemos recorrido el array de antesde final a inicio, podemos borrar los indices sin problema.
-                        paq.remove((int) ind_paq1);
                     }
 
                     envios.add(camiones_espera.get(0));
@@ -204,40 +198,64 @@ class Zona {
 
             }
 
-            return pesos.indexOf(Collections.max(pesos));
-
-        } else {//sino se coge el destino con mas paquetes en total y si llega al minimo de capacidad de camion
-
-            for (ArrayList<Paquete> lista : paquetes_espera) {
+            for (int i = 0; i < nZonas; i++) {
 
                 peso = 0;
 
-                for (Paquete paq : lista) {
+                for (Paquete paq : paquetes_espera.get(i)) {
 
                     peso += paq.tamaño;
 
                 }
 
-                if (peso < Camion.capacidad * Camion.porcentaje_minimo) { //No llega al minimo
+                if (pesos.get(i) < Camion.capacidad * 0.05) { //No llega al minimo
 
-                    peso = -1;
+                    pesos.set(i, -1.0);
 
                 }
 
-                pesos.add(peso);
-
             }
 
-            if (Collections.max(pesos) == -1) { //Si ningun camion llega al minimo
-
-                return -1;
-
-            } else {
+            if (Collections.max(pesos) >= 0) {
 
                 return pesos.indexOf(Collections.max(pesos));
 
             }
+
+        } //sino se coge el destino con mas paquetes en total y si llega al minimo de capacidad de camion
+
+        pesos.clear();
+
+        for (ArrayList<Paquete> lista : paquetes_espera) {
+
+            peso = 0;
+
+            for (Paquete paq : lista) {
+
+                peso += paq.tamaño;
+
+            }
+
+            if (peso < Camion.capacidad * Camion.porcentaje_minimo) { //No llega al minimo
+
+                peso = -1;
+
+            }
+
+            pesos.add(peso);
+
         }
+
+        if (Collections.max(pesos) == -1) { //Si ningun camion llega al minimo
+
+            return -1;
+
+        } else {
+
+            return pesos.indexOf(Collections.max(pesos));
+
+        }
+
     }
 
     void llegada_camion(Camion ent) {
@@ -249,6 +267,50 @@ class Zona {
         camiones_espera.add(ent);
 
         Collections.sort(camiones_espera);
+
+    }
+
+    ArrayList<Camion> repartir_camiones() {
+
+        ArrayList<Camion> envio = new ArrayList<>();
+
+        if (!camiones_espera.isEmpty() && camiones_espera.get(camiones_espera.size() - 1).tiempo_espera >= 4) {
+
+            int k = camiones_espera.size() - 1; //Siempre dejamos un camion esperando
+
+            ArrayList<Integer> zon = est.get_zonas_mas_ocupada();
+
+            zon.remove(zon.indexOf(idZona));
+
+            for (int j = 0; j < k; j++) {
+                int destino =zon.get(j % (nZonas - 1));
+
+                ArrayList<Paquete> paq = paquetes_espera.get(destino);
+                double capacidad = Camion.capacidad;
+
+                for (int i = paq.size() - 1; i >= 0; i--) {
+
+                    if (paq.get(i).tamaño <= capacidad) {
+                        capacidad -= paq.get(i).tamaño;
+                        camiones_espera.get(j).carga.add(paq.get(i));
+                        paq.remove(i);
+                    }
+                }
+
+                camiones_espera.get(j).destino = zon.get(j % (nZonas - 1));
+                envio.add(camiones_espera.get(j));
+
+            }
+
+            for (int j = 0; j < k; j++) {
+
+                camiones_espera.remove(0);
+
+            }
+
+        }
+
+        return envio;
 
     }
 

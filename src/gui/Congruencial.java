@@ -64,6 +64,8 @@ public class Congruencial extends javax.swing.JDialog {
         bSig = new javax.swing.JButton();
         vDefecto = new javax.swing.JButton();
 
+        setResizable(false);
+
         jLabel1.setText("<html><h2>a</h2></html>");
 
         jLabel2.setText("<html><h1>(</h1></html>");
@@ -75,6 +77,7 @@ public class Congruencial extends javax.swing.JDialog {
                 String cadena = ((JTextField)tf).getText();
                 // Aqui verificamos si cadena es correcta y devolvemos
                 try {
+                    Integer.parseInt(cadena);
                     return true;
                 } catch (NumberFormatException nfe){
                     return false;
@@ -108,6 +111,7 @@ public class Congruencial extends javax.swing.JDialog {
                 String cadena = ((JTextField)tf).getText();
                 // Aqui verificamos si cadena es correcta y devolvemos
                 try {
+                    Integer.parseInt(cadena);
                     return true;
                 } catch (NumberFormatException nfe){
                     return false;
@@ -125,6 +129,7 @@ public class Congruencial extends javax.swing.JDialog {
                 String cadena = ((JTextField)tf).getText();
                 // Aqui verificamos si cadena es correcta y devolvemos
                 try {
+                    Integer.parseInt(cadena);
                     return true;
                 } catch (NumberFormatException nfe){
                     return false;
@@ -140,6 +145,7 @@ public class Congruencial extends javax.swing.JDialog {
                 String cadena = ((JTextField)tf).getText();
                 // Aqui verificamos si cadena es correcta y devolvemos
                 try {
+                    Integer.parseInt(cadena);
                     return true;
                 } catch (NumberFormatException nfe){
                     return false;
