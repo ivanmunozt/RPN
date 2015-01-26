@@ -5,6 +5,7 @@
  */
 package gui;
 
+import java.util.HashSet;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
 import javax.swing.JTextField;
@@ -16,22 +17,22 @@ import javax.swing.JTextField;
 public class Congruencial extends javax.swing.JDialog {
 
     private static Congruencial instancia = new Congruencial();
-    
+
     /**
      * Creates new form Congruencial
      */
     private Congruencial() {
-        
+
         initComponents();
-        
+
         super.setModal(false);
-        
+
     }
-    
-    public static Congruencial getInstance(){
-    
+
+    public static Congruencial getInstance() {
+
         return instancia;
-    
+
     }
 
     /**
@@ -63,6 +64,8 @@ public class Congruencial extends javax.swing.JDialog {
         bCalcular = new javax.swing.JButton();
         bSig = new javax.swing.JButton();
         vDefecto = new javax.swing.JButton();
+        bEst = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
 
         setResizable(false);
 
@@ -90,7 +93,7 @@ public class Congruencial extends javax.swing.JDialog {
             }
         });
 
-        tx.setText("1234567890");
+        tx.setText("123");
         tx.setInputVerifier(new InputVerifier(){
             public boolean verify(JComponent tf) {
                 String cadena = ((JTextField)tf).getText();
@@ -196,6 +199,15 @@ public class Congruencial extends javax.swing.JDialog {
             }
         });
 
+        bEst.setText("Estadísticas");
+        bEst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEstActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText(" ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -244,9 +256,15 @@ public class Congruencial extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addComponent(tr, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(bEst, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(109, 109, 109)
                         .addComponent(bCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(bSig, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 781, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -258,7 +276,7 @@ public class Congruencial extends javax.swing.JDialog {
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE))
+                    .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -277,8 +295,11 @@ public class Congruencial extends javax.swing.JDialog {
                     .addComponent(bLimpiar)
                     .addComponent(bCalcular)
                     .addComponent(bSig)
-                    .addComponent(vDefecto))
-                .addGap(12, 12, 12))
+                    .addComponent(vDefecto)
+                    .addComponent(bEst))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel13)
+                .addContainerGap())
         );
 
         pack();
@@ -288,7 +309,7 @@ public class Congruencial extends javax.swing.JDialog {
 
         ta.setText("16333");
         tc.setText("25887");
-        tx.setText("1234567890");
+        tx.setText("123");
         tm.setText("32768");
         tr.setText("21833");
 
@@ -311,32 +332,91 @@ public class Congruencial extends javax.swing.JDialog {
     private void bCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcularActionPerformed
 
         long res = ((Long.parseLong(ta.getText()) * Long.parseLong(tx.getText())) + Long.parseLong(tc.getText())) % Long.parseLong(tm.getText());
-        
+
         tr.setText(String.valueOf(res));
 
     }//GEN-LAST:event_bCalcularActionPerformed
 
     private void bSigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSigActionPerformed
-        
+
         tx.setText(tr.getText());
-        
+
         long res = ((Long.parseLong(ta.getText()) * Long.parseLong(tx.getText())) + Long.parseLong(tc.getText())) % Long.parseLong(tm.getText());
-        
+
         tr.setText(String.valueOf(res));
-        
+
     }//GEN-LAST:event_bSigActionPerformed
 
     private void trActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_trActionPerformed
 
+    private void bEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEstActionPerformed
+
+        boolean valido = false;
+
+        if (Integer.parseInt(ta.getText()) == 0 || Integer.parseInt(tm.getText()) == 0) {
+
+            jLabel13.setText("Generador Congruencial No Válido");
+
+        } else {
+
+            String txt = "";
+
+            int a = Integer.parseInt(ta.getText());
+            int c = Integer.parseInt(tc.getText());
+            int m = Integer.parseInt(tm.getText());
+            int x = Integer.parseInt(tx.getText());
+
+            if (Integer.parseInt(tc.getText()) == 0) { //Mulitplicativo
+
+                txt += ("Generador Congruencial Multiplicativo       ");
+
+                if (primoRelativo(x, m)) {
+                    if (raizPrimitiva(a, m)) {
+                        txt += ("Tiene perido máximo");
+                    } else {
+                        txt += ("No tiene perido máximo");
+                    }
+                } else {
+                    txt += ("No tiene perido máximo");
+                }
+
+            } else {
+
+                txt +=("Generador Congruencial Mixto       ");
+                if (primoRelativo(c, m)) {
+                    if (multFactPrim(a, m)) {
+                        if (multM4(a, m)) {
+                            txt += ("Tiene perido máximo");
+                        } else {
+                            txt += ("No tiene perido máximo");
+                        }
+                    } else {
+                        txt += ("No tiene perido máximo");
+                    }
+                } else {
+                    txt += ("No tiene perido máximo");
+                }
+
+            }
+
+            jLabel13.setText(txt + "       Periodo: " + periodoMax(x, a, c, m));
+
+        }
+
+
+    }//GEN-LAST:event_bEstActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bCalcular;
+    private javax.swing.JButton bEst;
     private javax.swing.JButton bLimpiar;
     private javax.swing.JButton bSig;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -352,4 +432,98 @@ public class Congruencial extends javax.swing.JDialog {
     private javax.swing.JTextField tx;
     private javax.swing.JButton vDefecto;
     // End of variables declaration//GEN-END:variables
+
+    private boolean primoRelativo(int dato, int dato2) {
+
+        int divisor = 2;
+        boolean rta = true;
+        while ((divisor <= dato / 2) || (divisor <= dato2 / 2)) {
+            if (((dato % divisor) == 0) && ((dato2 % divisor) == 0)) {
+                return (rta = false);
+            }
+            divisor++;
+        }
+        return rta;
+    }
+
+    private boolean raizPrimitiva(int a, int m) {
+
+        int elevado = 1;
+
+        while (Math.pow(a, elevado) % m != 1) {
+            elevado++;
+        }
+
+        return elevado == (m - 1);
+    }
+
+    private boolean multFactPrim(int a, int m) {
+
+        int aux = 1;
+        int factorPrimo = 2;
+        int n;
+
+        while (m > 1) {
+
+            n = 0;
+
+            while ((m % factorPrimo) == 0) {
+                //encotrado factor
+                ++n;
+                m /= factorPrimo;
+            }
+            if (n > 0) {
+
+                aux *= factorPrimo;
+
+            }
+            ++factorPrimo;
+        }
+
+        return (a - 1) % aux == 0;
+
+    }
+
+    private boolean multM4(int a, int m) {
+
+        if (m % 4 == 0) {
+
+            if ((a - 1) % 4 == 0) {
+
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        return true;
+    }
+
+    private int periodoMax(int x, int a, int c, int m) {
+
+        HashSet<Integer> ant = new HashSet<>();
+        ant.add(x);
+
+        boolean continuar = true;
+
+        while (continuar) {
+
+            long aux = (x * a);
+            aux += c;
+            aux = aux % m;
+
+            if (ant.contains((int) aux)) {
+                continuar = false;
+            } else {
+                ant.add((int) aux);
+                x = (int) aux;
+            }
+        }
+
+        return ant.size();
+
+    }
+
 }

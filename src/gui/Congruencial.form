@@ -73,11 +73,18 @@
                       <Component id="tr" min="-2" pref="102" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
+                      <Component id="bEst" min="-2" pref="102" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                       <Component id="bCalcular" min="-2" pref="102" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="bSig" min="-2" pref="102" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Component id="jLabel13" min="-2" pref="781" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -91,7 +98,7 @@
                   <Component id="jLabel8" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                   <Component id="jLabel9" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                   <Component id="jLabel10" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
-                  <Component id="jLabel11" pref="25" max="32767" attributes="0"/>
+                  <Component id="jLabel11" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -113,8 +120,11 @@
                   <Component id="bCalcular" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bSig" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="vDefecto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bEst" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -144,7 +154,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="tx">
       <Properties>
-        <Property name="text" type="java.lang.String" value="1234567890"/>
+        <Property name="text" type="java.lang.String" value="123"/>
         <Property name="inputVerifier" type="javax.swing.InputVerifier" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="new InputVerifier(){&#xa;    public boolean verify(JComponent tf) {&#xa;        String cadena = ((JTextField)tf).getText();&#xa;        // Aqui verificamos si cadena es correcta y devolvemos&#xa;        try {&#xa;            return true;&#xa;        } catch (NumberFormatException nfe){&#xa;            return false;&#xa;        }&#xa;    }&#xa;}" type="code"/>
         </Property>
@@ -253,6 +263,19 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vDefectoActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="bEst">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Estad&#xed;sticas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bEstActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel13">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=" "/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

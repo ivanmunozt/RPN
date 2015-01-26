@@ -10,7 +10,7 @@
     <Zonas>
         <Zona_0>
             <Nombre>Madrid</Nombre>
-            <Camiones_espera>6</Camiones_espera>
+            <Camiones_espera>4</Camiones_espera>
             <Probabilidad_destinos>
                 <Zona_0>0.0</Zona_0>
                 <Zona_1>0.2</Zona_1>
@@ -30,7 +30,7 @@
         </Zona_0>
         <Zona_1>
             <Nombre>Cataluna</Nombre>
-            <Camiones_espera>6</Camiones_espera>
+            <Camiones_espera>4</Camiones_espera>
             <Probabilidad_destinos>
                 <Zona_0>0.2</Zona_0>
                 <Zona_1>0.0</Zona_1>
@@ -50,7 +50,7 @@
         </Zona_1>
         <Zona_2>
             <Nombre>Valencia</Nombre>
-            <Camiones_espera>6</Camiones_espera>
+            <Camiones_espera>4</Camiones_espera>
             <Probabilidad_destinos>
                 <Zona_0>0.23</Zona_0>
                 <Zona_1>0.2</Zona_1>
@@ -70,7 +70,7 @@
         </Zona_2>
         <Zona_3>
             <Nombre>Andalucia</Nombre>
-            <Camiones_espera>6</Camiones_espera>
+            <Camiones_espera>4</Camiones_espera>
             <Probabilidad_destinos>
                 <Zona_0>0.2</Zona_0>
                 <Zona_1>0.2</Zona_1>
@@ -90,7 +90,7 @@
         </Zona_3>
         <Zona_4>
             <Nombre>Castilla</Nombre>
-            <Camiones_espera>6</Camiones_espera>
+            <Camiones_espera>4</Camiones_espera>
             <Probabilidad_destinos>
                 <Zona_0>0.23</Zona_0>
                 <Zona_1>0.2</Zona_1>
@@ -110,7 +110,7 @@
         </Zona_4>
         <Zona_5>
             <Nombre>Pais_Vasco</Nombre>
-            <Camiones_espera>6</Camiones_espera>
+            <Camiones_espera>4</Camiones_espera>
             <Probabilidad_destinos>
                 <Zona_0>0.23</Zona_0>
                 <Zona_1>0.2</Zona_1>
@@ -130,7 +130,7 @@
         </Zona_5>
         <Zona_6>
             <Nombre>Galicia</Nombre>
-            <Camiones_espera>6</Camiones_espera>
+            <Camiones_espera>4</Camiones_espera>
             <Probabilidad_destinos>
                 <Zona_0>0.23</Zona_0>
                 <Zona_1>0.2</Zona_1>
